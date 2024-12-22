@@ -1,0 +1,71 @@
+{
+    "name": "languageserver-jira",
+    "displayName": "Languageserver Jira",
+    "description": "A language server for Jira integration",
+    "license": "MIT",
+    "version": "0.0.1",
+    "publisher": "mpietsch",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ahpex/languageserver-jira"
+      },
+    "categories": [
+        "Other",
+        "Snippets"
+    ],
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "activationEvents": [
+        "onLanguage"
+    ],
+    "type": "module",
+    "main": "./client/out/extension.js",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Languageserver Jira",
+            "properties": {
+                "languageserver-jira.hostname": {
+                    "type": "string",
+                    "default": "https://127.0.0.1:6443",
+                    "description": "The hostname of the Jira server."
+                },
+                "languageserver-jira.authorizationToken": {
+                    "type": "string",
+                    "default": "token",
+                    "description": "The authorization token for accessing the Jira server."
+                },
+                "languageserver-jira.project": {
+                    "type": "string",
+                    "default": "ABC",
+                    "description": "The project key for Jira."
+                },
+                "languageserver-jira.sslCertificateCheck": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable or disable SSL certificate check."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -b",
+        "watch": "tsc -b -w",
+        "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+        "format": "prettier --write '**/*.{json,ts}'",
+        "lint": "eslint '**/*.{ts,js}' --quiet"
+    },
+    "devDependencies": {
+        "@types/node": "^20.5.7",
+        "@typescript-eslint/eslint-plugin": "^8.18.1",
+        "@typescript-eslint/parser": "^8.18.1",
+        "eslint": "^9.17.0",
+        "prettier": "^2.8.8",
+        "typescript": "^5.2.2"
+    },
+    "dependencies": {
+        "axios": "^1.7.9"
+    }
+}

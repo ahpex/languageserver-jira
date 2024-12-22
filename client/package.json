@@ -1,0 +1,22 @@
+{
+    "name": "languageserver-jira",
+    "description": "languageserver-jira",
+    "author": "languageserver-jira",
+    "license": "MIT",
+    "version": "0.0.1",
+    "publisher": "languageserver-jira",
+    "repository": {
+        "type": "git",
+        "url": "languageserver-jira"
+    },
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^8.1.0",
+        "axios": "^1.7.9"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.81.0"
+    }
+}
